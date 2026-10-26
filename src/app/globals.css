@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   GEP Navigator — the reporter's volume
+   White record page and engraving-black type; the outline is the
+   volume's spine in buckram tan with black and gilt spine labels.
+   Oxblood is the path ink: scope keys, pinpoints, cited sections and
+   highlighted spans. Nothing else is oxblood.
+   ------------------------------------------------------------------ */
+:root {
+  --page: #ffffff;
+  --page-2: #f7f6f3;
+  --ink: #17140f;
+  --ink-2: #48433b;
+  --ink-3: #6b645a;
+  --rule: #dcd6cc;
+  --rule-strong: #1b1814;
+
+  --buckram: #c9ad7f;
+  --buckram-2: #bb9d6c;
+  --buckram-ink: #20190f;
+  --buckram-ink-2: #4a3c25;
+  --label: #1c1915;
+  --gilt: #ead9a8;
+
+  --path: #8b1d1d;
+  --path-2: #6e1515;
+  --path-soft: #f7e6e2;
+  --path-line: #e9c3bc;
+
+
+  --font-ui: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-record: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-page-2: var(--page-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-buckram: var(--buckram);
+  --color-buckram-2: var(--buckram-2);
+  --color-buckram-ink: var(--buckram-ink);
+  --color-buckram-ink-2: var(--buckram-ink-2);
+  --color-label: var(--label);
+  --color-gilt: var(--gilt);
+  --color-path: var(--path);
+  --color-path-2: var(--path-2);
+  --color-path-soft: var(--path-soft);
+  --color-path-line: var(--path-line);
+  --font-ui: var(--font-ui);
+  --font-record: var(--font-record);
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-feature-settings: "kern", "liga";
+}
+
+/* the parts of the browser nobody draws */
+::selection { background: var(--path-soft); color: var(--path-2); }
+:focus-visible { outline: 2px solid var(--path); outline-offset: 2px; }
+input, textarea { caret-color: var(--path); }
+a { text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.record { font-family: var(--font-record); font-optical-sizing: auto; }
+
+* { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+.spine { scrollbar-color: var(--buckram-ink-2) var(--buckram-2); }
+
+/* star-paging: where a printed page begins inside a passage, as in a law reporter */
+.star-page {
+  font-family: var(--font-ui);
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  margin-inline: 0.2em;
+  vertical-align: 0.15em;
+}
+
+/* the pinpoint span in the record */
+mark.pinpoint {
+  background: var(--path-soft);
+  color: inherit;
+  box-shadow: inset 0 -1.5px 0 var(--path);
+  padding: 0.05em 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .record-enter { animation: record-in 220ms cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes record-in {
+    from { opacity: 0; transform: translateX(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .spine-mark { transition: background-color 180ms ease-out, color 180ms ease-out; }
+}
+
+/* the reporter's running head on reading pages: guide words for the section in view */
+.running-head { text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.1em; font-weight: 600; }

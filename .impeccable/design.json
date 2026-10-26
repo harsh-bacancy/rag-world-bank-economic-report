@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-25T00:00:00Z",
+  "title": "Design System: GEP Navigator",
+  "extensions": {
+    "colorMeta": {
+      "page": {
+        "role": "neutral",
+        "displayName": "Record White",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "page-2": {
+        "role": "neutral",
+        "displayName": "Paper Tint",
+        "canonical": "oklch(97.3% 0.004 91)",
+        "tonalRamp": [
+          "#0c0b0a",
+          "#252422",
+          "#40403e",
+          "#5e5d5b",
+          "#81807d",
+          "#a5a4a2",
+          "#cbcac8",
+          "#efeeec"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Engraving Black",
+        "canonical": "oklch(19.3% 0.011 81)",
+        "tonalRamp": [
+          "#0d0b07",
+          "#26241f",
+          "#423f3a",
+          "#615d57",
+          "#838079",
+          "#a8a49e",
+          "#cdcac4",
+          "#f1eee8"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Second Ink",
+        "canonical": "oklch(38.5% 0.015 80)",
+        "tonalRamp": [
+          "#0e0b06",
+          "#27231d",
+          "#433f38",
+          "#625d55",
+          "#857f77",
+          "#a9a49b",
+          "#cfcac2",
+          "#f2eee6"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Third Ink",
+        "canonical": "oklch(50.7% 0.018 77)",
+        "tonalRamp": [
+          "#0e0a05",
+          "#28231c",
+          "#453f37",
+          "#635d53",
+          "#867f75",
+          "#aaa39a",
+          "#d0c9c0",
+          "#f4ede5"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(87.8% 0.015 81)",
+        "tonalRamp": [
+          "#0e0b06",
+          "#27231d",
+          "#433f38",
+          "#625d55",
+          "#857f77",
+          "#a9a49b",
+          "#cfcac2",
+          "#f2eee6"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "oklch(21.1% 0.009 75)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262420",
+          "#423f3b",
+          "#605d58",
+          "#83807b",
+          "#a8a49f",
+          "#cdcac5",
+          "#f1eee9"
+        ]
+      },
+      "buckram": {
+        "role": "secondary",
+        "displayName": "Buckram Tan",
+        "canonical": "oklch(76.1% 0.069 80)",
+        "tonalRamp": [
+          "#160700",
+          "#322000",
+          "#513c15",
+          "#715930",
+          "#967c51",
+          "#baa178",
+          "#dfc7a1",
+          "#ffebc7"
+        ]
+      },
+      "buckram-2": {
+        "role": "secondary",
+        "displayName": "Worn Buckram",
+        "canonical": "oklch(71.1% 0.075 79)",
+        "tonalRamp": [
+          "#170700",
+          "#342000",
+          "#523b10",
+          "#73592b",
+          "#977b4d",
+          "#bba075",
+          "#e0c79e",
+          "#ffebc4"
+        ]
+      },
+      "buckram-ink": {
+        "role": "secondary",
+        "displayName": "Spine Ink",
+        "canonical": "oklch(21.9% 0.021 76)",
+        "tonalRamp": [
+          "#0f0a05",
+          "#29231b",
+          "#463f35",
+          "#645c51",
+          "#877f73",
+          "#aca398",
+          "#d1c9be",
+          "#f5ede3"
+        ]
+      },
+      "buckram-ink-2": {
+        "role": "secondary",
+        "displayName": "Faded Spine Ink",
+        "canonical": "oklch(36.5% 0.041 79)",
+        "tonalRamp": [
+          "#120900",
+          "#2d2210",
+          "#4a3e29",
+          "#6a5b44",
+          "#8d7e66",
+          "#b1a28b",
+          "#d7c9b2",
+          "#faedd8"
+        ]
+      },
+      "label": {
+        "role": "secondary",
+        "displayName": "Spine Label Black",
+        "canonical": "oklch(21.5% 0.009 75)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262420",
+          "#423f3b",
+          "#605d58",
+          "#83807b",
+          "#a8a49f",
+          "#cdcac5",
+          "#f1eee9"
+        ]
+      },
+      "gilt": {
+        "role": "secondary",
+        "displayName": "Gilt",
+        "canonical": "oklch(88.7% 0.067 91)",
+        "tonalRamp": [
+          "#130900",
+          "#2e2300",
+          "#4b3e17",
+          "#6b5c31",
+          "#8e7f53",
+          "#b2a47a",
+          "#d8caa2",
+          "#fbeec9"
+        ]
+      },
+      "path": {
+        "role": "primary",
+        "displayName": "Path Oxblood",
+        "canonical": "oklch(41.9% 0.146 26)",
+        "tonalRamp": [
+          "#260000",
+          "#490406",
+          "#6d231f",
+          "#943f3a",
+          "#bc625b",
+          "#e08981",
+          "#ffb2a9",
+          "#ffd8ce"
+        ]
+      },
+      "path-2": {
+        "role": "primary",
+        "displayName": "Deep Oxblood",
+        "canonical": "oklch(35.4% 0.123 26)",
+        "tonalRamp": [
+          "#260000",
+          "#490406",
+          "#6d231f",
+          "#943f3a",
+          "#bc625b",
+          "#e08981",
+          "#ffb2a9",
+          "#ffd8cf"
+        ]
+      },
+      "path-soft": {
+        "role": "primary",
+        "displayName": "Pinpoint Blush",
+        "canonical": "oklch(93.7% 0.019 33)",
+        "tonalRamp": [
+          "#110907",
+          "#2b211f",
+          "#483d3a",
+          "#685a57",
+          "#8b7c79",
+          "#afa19e",
+          "#d5c7c4",
+          "#f8ebe8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles on /eval and /how-it-works."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads on reading pages; the ask field at regular weight."
+      },
+      "title": {
+        "displayName": "Holding",
+        "purpose": "The holding, refusal statements, the reading-page lede."
+      },
+      "record": {
+        "displayName": "Record",
+        "purpose": "Passages as the report prints them, max 68ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanatory sans prose and refusal reasons."
+      },
+      "apparatus": {
+        "displayName": "Apparatus",
+        "purpose": "Scope line, citation paths, printed pages, spine entries, table cells; tabular figures."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase tracked section labels in the apparatus (Authorities, docket heads)."
+      },
+      "running-head": {
+        "displayName": "Running head",
+        "purpose": "Guide words in the sticky running head and the record panel head; real uppercase, no fake small caps."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pinpoint-underline",
+        "value": "inset 0 -1.5px 0 var(--path)",
+        "purpose": "The oxblood underline under a quoted span; a rule, not elevation. No other shadows exist."
+      }
+    ],
+    "motion": [
+      {
+        "name": "record-in",
+        "value": "220ms cubic-bezier(0.16, 1, 0.3, 1); from opacity 0, translateX(8px)",
+        "purpose": "A passage entering the record panel; reduced-motion users get none."
+      },
+      {
+        "name": "spine-mark",
+        "value": "background-color, color 180ms ease-out",
+        "purpose": "Spine entries changing scope, cited or open state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Spine becomes a sticky 280px column."
+      },
+      {
+        "name": "xl",
+        "value": "1280px",
+        "purpose": "Record becomes a sticky right column (360-420px)."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ask Button",
+      "kind": "button",
+      "refersTo": "button-ask",
+      "description": "The single primary action: ask the report (Enter).",
+      "html": "<button class=\"ds-btn-ask\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>Ask</button>",
+      "css": ".ds-btn-ask{display:inline-flex;align-items:center;gap:6px;background:var(--rule-strong,#1b1814);color:var(--page,#fff);font-family:var(--font-ui,'Public Sans',sans-serif);font-size:14px;font-weight:600;padding:8px 16px;border:0;border-radius:0;cursor:pointer}.ds-btn-ask:hover{background:var(--ink-2,#48433b)}.ds-btn-ask:focus-visible{outline:2px solid var(--path,#8b1d1d);outline-offset:2px}.ds-btn-ask:disabled{opacity:.6;cursor:progress}"
+    },
+    {
+      "name": "Ask Field",
+      "kind": "input",
+      "refersTo": "ask-field",
+      "description": "Unboxed serif question line over a strong underline, with Ask beside it.",
+      "html": "<label class=\"ds-ask\"><span class=\"ds-ask-label\">Ask the report</span><span class=\"ds-ask-row\"><textarea rows=\"1\" placeholder=\"What is the growth outlook for South Asia?\"></textarea></span></label>",
+      "css": ".ds-ask{display:flex;flex-direction:column;gap:12px;max-width:760px}.ds-ask-label{font-family:var(--font-ui,'Public Sans',sans-serif);font-size:13px;font-weight:600;color:var(--ink-2,#48433b)}.ds-ask-row{display:flex;border-bottom:2px solid var(--rule-strong,#1b1814);padding-bottom:8px}.ds-ask-row:focus-within{border-color:var(--ink,#17140f)}.ds-ask textarea{flex:1;resize:none;border:0;background:transparent;outline:none;font-family:var(--font-record,'Source Serif 4',Georgia,serif);font-size:22px;line-height:1.375;color:var(--ink,#17140f);caret-color:var(--path,#8b1d1d)}.ds-ask textarea::placeholder{color:var(--ink-3,#6b645a)}"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header links, full height, current page underlined in the strong rule; never oxblood.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Ask</a><a href=\"#\">Evaluation</a><a href=\"#\">How it works</a></nav>",
+      "css": ".ds-nav{display:flex;height:56px;align-items:stretch;border-bottom:1px solid var(--rule-strong,#1b1814);background:var(--page,#fff)}.ds-nav a{display:flex;align-items:center;padding:0 12px;border-bottom:2px solid transparent;font-family:var(--font-ui,'Public Sans',sans-serif);font-size:14px;font-weight:500;color:var(--ink-2,#48433b);text-decoration:none;transition:color .15s,border-color .15s}.ds-nav a:hover{color:var(--ink,#17140f);border-color:var(--rule,#dcd6cc)}.ds-nav a[aria-current=page]{color:var(--ink,#17140f);border-color:var(--rule-strong,#1b1814)}.ds-nav a:focus-visible{outline:2px solid var(--path,#8b1d1d);outline-offset:2px}"
+    },
+    {
+      "name": "Spine",
+      "kind": "custom",
+      "refersTo": "spine-label",
+      "description": "The outline as a buckram spine: black/gilt chapter labels; scope in oxblood with the key glyph; cited sections carry pinpoints.",
+      "html": "<nav class=\"ds-spine\"><button class=\"ds-spine-label\"><span class=\"ds-ch\">Ch. 1</span><span class=\"ds-t\">Global Outlook</span><span class=\"ds-pg\">1</span></button><button class=\"ds-spine-label is-scoped\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-label=\"In scope\"><path d=\"M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z\"/><circle cx=\"16.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"/></svg><span class=\"ds-ch\">Ch. 2</span><span class=\"ds-t\">Regional Outlooks</span><span class=\"ds-pg\">41</span></button><button class=\"ds-spine-entry is-scoped\">South Asia <span class=\"ds-code\">SAR</span><span class=\"ds-pins\">[1][2]</span><span class=\"ds-pg\">74</span></button><button class=\"ds-spine-entry is-open\">Sub-Saharan Africa <span class=\"ds-code\">SSA</span><span class=\"ds-pg\">80</span></button></nav>",
+      "css": ".ds-spine{display:flex;flex-direction:column;gap:4px;width:280px;padding:16px 12px;background:var(--buckram,#c9ad7f);font-family:var(--font-ui,'Public Sans',sans-serif)}.ds-spine button{display:flex;align-items:baseline;gap:8px;width:100%;border:0;border-radius:0;text-align:left;cursor:pointer;transition:background-color 180ms ease-out,color 180ms ease-out}.ds-spine-label{padding:6px 10px;background:var(--label,#1c1915);color:var(--gilt,#ead9a8)}.ds-spine-label:hover{background:#2b2620}.ds-spine-label.is-scoped{background:var(--path,#8b1d1d)}.ds-ch{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.9}.ds-t{flex:1;font-size:13px;font-weight:600}.ds-pg{font-size:12px;font-variant-numeric:tabular-nums;opacity:.8}.ds-spine-entry{padding:5px 8px 5px 10px;background:transparent;color:var(--buckram-ink,#20190f);font-size:13px}.ds-spine-entry:hover{background:rgb(187 157 108/.7)}.ds-spine-entry.is-open{background:var(--buckram-2,#bb9d6c)}.ds-spine-entry.is-scoped{color:var(--path-2,#6e1515);font-weight:600}.ds-code{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--buckram-ink-2,#4a3c25)}.is-scoped .ds-code,.ds-pins{color:var(--path-2,#6e1515)}.ds-pins{margin-left:auto;font-size:11px;font-weight:600}.ds-spine button:focus-visible{outline:2px solid var(--path,#8b1d1d);outline-offset:2px}"
+    },
+    {
+      "name": "Holding with Pinpoints",
+      "kind": "custom",
+      "refersTo": "pinpoint-mark",
+      "description": "The serif holding led by 'Held', every claim carrying an oxblood superscript pinpoint.",
+      "html": "<p class=\"ds-holding\"><span class=\"ds-held\">Held</span>Growth in South Asia is projected to soften to 6.3 percent in 2026.<button class=\"ds-pin\">[1]</button></p>",
+      "css": ".ds-holding{max-width:720px;font-family:var(--font-record,'Source Serif 4',Georgia,serif);font-size:19px;line-height:1.55;color:var(--ink,#17140f)}.ds-held{margin-right:8px;font-family:var(--font-ui,'Public Sans',sans-serif);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2,#48433b)}.ds-pin{margin:0 1px;vertical-align:super;border:0;background:none;padding:0;font-family:var(--font-ui,'Public Sans',sans-serif);font-size:12px;font-weight:600;color:var(--path,#8b1d1d);cursor:pointer}.ds-pin:hover{color:var(--path-2,#6e1515);text-decoration:underline}.ds-pin:focus-visible{outline:2px solid var(--path,#8b1d1d);outline-offset:2px}"
+    },
+    {
+      "name": "Authorities List",
+      "kind": "custom",
+      "refersTo": "docket-line",
+      "description": "Hairline-ruled citations: pinpoint, path and printed page, the verbatim span in serif italic.",
+      "html": "<ol class=\"ds-auth\"><li><button><span class=\"ds-n\">[1]</span><span class=\"ds-body\"><span class=\"ds-path\">Ch. 2 › South Asia › Outlook <span class=\"ds-pg\">· p. 74</span></span><span class=\"ds-q\">“Growth in SAR is expected to soften to 6.3 percent in 2026”</span></span><span class=\"ds-v\">verbatim</span></button></li></ol>",
+      "css": ".ds-auth{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule,#dcd6cc);border-bottom:1px solid var(--rule,#dcd6cc);font-family:var(--font-ui,'Public Sans',sans-serif)}.ds-auth li+li{border-top:1px solid var(--rule,#dcd6cc)}.ds-auth button{display:flex;gap:12px;width:100%;padding:10px 0;border:0;background:none;text-align:left;cursor:pointer}.ds-auth button:hover{background:var(--page-2,#f7f6f3)}.ds-auth button:focus-visible{outline:2px solid var(--path,#8b1d1d);outline-offset:2px}.ds-n{width:28px;flex-shrink:0;font-size:13px;font-weight:600;color:var(--path,#8b1d1d);font-variant-numeric:tabular-nums}.ds-body{display:flex;flex-direction:column;gap:4px}.ds-path{font-size:13px;color:var(--ink-2,#48433b)}.ds-pg{color:var(--ink-3,#6b645a);font-variant-numeric:tabular-nums}.ds-q{font-family:var(--font-record,'Source Serif 4',Georgia,serif);font-style:italic;font-size:15px;color:var(--ink,#17140f)}.ds-v{margin-left:auto;font-size:11px;font-weight:500;color:var(--ink-3,#6b645a)}"
+    },
+    {
+      "name": "Record Passage",
+      "kind": "custom",
+      "refersTo": "pinpoint-mark",
+      "description": "Guide words at the head, serif passage with star-paging and the quoted span in Pinpoint Blush.",
+      "html": "<article class=\"ds-record\"><header><span>SAR · Outlook</span><span>SAR · Risks</span></header><p>Growth in SAR is expected to soften to <mark>6.3 percent in 2026</mark>, mainly reflecting the adverse impact of the conflict in the Middle East. <span class=\"ds-star\">*75</span>Inflation is projected to ease.</p></article>",
+      "css": ".ds-record{max-width:420px;background:var(--page,#fff);border-left:1px solid var(--rule-strong,#1b1814)}.ds-record header{display:flex;justify-content:space-between;gap:12px;padding:12px 20px 8px;border-bottom:1px solid var(--rule-strong,#1b1814);font-family:var(--font-ui,'Public Sans',sans-serif);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3,#6b645a)}.ds-record p{margin:0;padding:16px 20px;max-width:68ch;font-family:var(--font-record,'Source Serif 4',Georgia,serif);font-size:16px;line-height:1.6;color:var(--ink,#17140f)}.ds-record mark{background:var(--path-soft,#f7e6e2);color:inherit;box-shadow:inset 0 -1.5px 0 var(--path,#8b1d1d);padding:.05em 0}.ds-star{font-family:var(--font-ui,'Public Sans',sans-serif);font-size:.72em;font-weight:600;color:var(--ink-3,#6b645a);font-variant-numeric:tabular-nums;margin-inline:.2em;vertical-align:.15em}"
+    },
+    {
+      "name": "Running Head",
+      "kind": "custom",
+      "refersTo": "running-head",
+      "description": "Sticky guide-word strip on reading pages naming the first and last section in view.",
+      "html": "<div class=\"ds-rh\"><span>What each technique moved</span><span>Evaluation</span><span>Answers: naive versus full</span></div>",
+      "css": ".ds-rh{display:flex;justify-content:space-between;align-items:center;gap:16px;height:32px;padding:0 32px;border-bottom:1px solid var(--rule,#dcd6cc);background:var(--page,#fff);font-family:var(--font-ui,'Public Sans',sans-serif);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3,#6b645a)}.ds-rh span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Reporter's Volume",
+    "overview": "**Creative North Star: \"The Reporter's Volume\"**\n\nThe interface is a bound law reporter opened on the desk. The report's outline is the volume's spine, cloth-bound in buckram tan, its chapters carried on black spine labels lettered in gilt. The centre is the bench: a question asked at headline scale, then an opinion set as headnote (where the question was routed), holding (the short answer, in serif, every sentence pinned) and authorities (the verbatim spans, each with its printed page). The right-hand record shows the cited passage as the report prints it, with guide words at its head, star-paging where printed pages break, and the quoted span marked.\n\nDensity is that of a reference book, not a dashboard: hairline rules divide everything, nothing is boxed, and the page stays white. One ink, oxblood, is reserved for the answer's path through the volume (the scope key, the pinpoints, the cited sections on the spine, the highlighted span), so the eye can follow how an answer was found without reading a legend. All other emphasis is weight and ink depth, never a second hue.\n\nThe serif carries what the report says and what the court held; the sans carries the apparatus around it: navigation, counts, page numbers, labels. Rejected outright by the build: chat bubbles, answer cards with source chips, rounded corners, drop shadows.",
+    "keyCharacteristics": [
+      "White record page, warm engraving-black inks, buckram spine as the only tinted surface.",
+      "Oxblood marks the answer's path and nothing else in the content.",
+      "Source Serif 4 for record and holdings; Public Sans for apparatus.",
+      "Hairline rules, square corners, no cards, no shadows.",
+      "Law-reporter devices are working UI: headnote, \"Held\", authorities, star-paging, guide words, running head, key glyph for scope."
+    ],
+    "rules": [
+      {
+        "name": "The One Path Rule",
+        "body": "Oxblood means \"this is the route the answer took.\" It never marks navigation, hover on ordinary links, eval results, headings that are not a scope name, or decoration. If a mark is not scope, pinpoint, cited section or quoted span, it is ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight Not Hue Rule",
+        "body": "Winners, active states and emphasis are carried by weight and ink depth (ink over ink-2 over ink-3). The eval page's best bars are ink, others ink-3 at 60%; there is no success green, warning amber or error red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Serif is what the report says or what the answer holds; sans is everything about it. A page number, count or label is never serif; a quoted span is never sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every number that can sit in a column (pages, pinpoints, scores, percentages) uses tabular lining figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Separation is a 1px rule (hairline or strong), never a card, fill or shadow. Tonal fill is allowed only as state (row hover, the open spine section), as the pinpoint ground, and in loading skeletons.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do reserve oxblood (path, path-2, path-soft) for scope, pinpoints, cited spine sections and the quoted span.",
+      "Do set the report's words and the holding in Source Serif 4, and every count, page and label in Public Sans with tabular figures.",
+      "Do separate with 1px rules (rule for rows, rule-strong for structure) and keep every corner square.",
+      "Do carry the law-reporter apparatus on new surfaces where it does real work: guide words in a running head, star-paging inside passages, \"Held\" before a holding, printed page after every citation.",
+      "Do show winners and active states with weight and ink depth.",
+      "Do gate every motion behind prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't put oxblood on navigation, link hover, eval bars, headings that do not name a scope, or icons that are not the scope key.",
+      "Don't introduce a second accent, or status colours (green, amber, red) for results or refusals.",
+      "Don't wrap content in cards, tinted panels, chat bubbles or source chips.",
+      "Don't use box-shadows or border radius.",
+      "Don't fake small caps; the running head and labels are real uppercase with tracking.",
+      "Don't tint any surface other than the spine."
+    ]
+  }
+}
