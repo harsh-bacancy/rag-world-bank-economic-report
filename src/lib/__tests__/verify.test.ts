@@ -32,6 +32,12 @@ describe("citation verifier", () => {
     expect(g.refused).toBe(false);
   });
 
+  it("keeps the verbatim clause of a long quote with one wrong word", () => {
+    const g = verifyAnswer({ answer: "Growth softens to 6.3 percent.[^1]", citations: [{ n: 1, source: 1, quote: "Growth in SAR is expected to soften to 6.3 percent in 2026, mainly reflecting the adverse impacts of the conflict in the Middle East." }], refused: false }, sources, null);
+    expect(g.refused).toBe(false);
+    expect(g.citations[0].span).toBe("Growth in SAR is expected to soften to 6.3 percent in 2026");
+  });
+
   it("turns an answer with nothing verified into a refusal", () => {
     const g = verifyAnswer({ answer: "Growth is 12 percent.[^1]", citations: [{ n: 1, source: 2, quote: "growth is 12 percent" }], refused: false }, sources, null);
     expect(g.refused).toBe(true);

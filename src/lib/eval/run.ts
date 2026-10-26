@@ -70,6 +70,8 @@ export async function runEval(opts: { modes: AskMode[]; ids?: string[]; resume?:
 
   let report: EvalReport = { ranAt: new Date().toISOString(), golden: path.basename(GOLDEN_PATH), store: store.name, rows: [], summaries: {} };
   if (opts.resume) { try { report = JSON.parse(await readFile(out, "utf8")); } catch { /* fresh */ } }
+  // re-running named ids replaces their rows; everything else in a resumed report is kept
+  if (opts.resume && opts.ids?.length) report.rows = report.rows.filter((r) => !(opts.ids!.includes(r.id) && opts.modes.includes(r.mode)));
   const done = new Set(report.rows.filter((r) => !r.error).map((r) => `${r.mode}:${r.id}`));
   report.rows = report.rows.filter((r) => !r.error);
   const total = qs.length * opts.modes.length;

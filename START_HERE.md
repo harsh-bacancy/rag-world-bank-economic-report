@@ -12,9 +12,9 @@ You asked me to build as much as possible without asking questions, and to leave
 | Golden set | **Done.** 60 questions in `data/golden/gep-golden.json`, written from the PDF before pipeline code | Needs **your review** (step 3) |
 | PDF → structure → chunks → index | **Done.** 163 sections, 6 regions, 4 boxes, 25 tables rebuilt (4,339 cells), 783 search chunks inside 346 reading windows | `npm test` (28 tests, incl. integration checks on the real PDF), `npm run inspect` |
 | Retrieval (routing, BM25, RRF, rerank, parents, refusal gate) | **Done and measured** (keyword channel) | `npm run eval:retrieval` → table below |
-| Embeddings / hybrid search | **Wired, not run.** No API key in this session | Step 1 switches it on |
-| Answer generation, verifier, scope guard, computed source | **Built and unit-tested, never run end-to-end** (no key) | Step 1, then `npm run ask` |
-| Answer-level eval (naive vs full) | **Built, not run** (no key) | Step 2 |
+| Embeddings / hybrid search | **Search chunks done (783/783)**, hybrid search live. Naive-baseline chunks 74/889 and the heading-path ablation set 0/783: the free tier caps embeddings at **1,000 texts/day** (and 100/min, 30k tokens/min), so they finish over the next day or two | Re-run `npm run ingest` each day; it resumes |
+| Answer generation, verifier, scope guard, computed source | **Running.** The three sample questions answer correctly with verified, in-scope citations | `npm run ask -- "…"` |
+| Answer-level eval | **Full mode done:** correctness 0.97, faithfulness 0.98, **0% mix-ups**, refusal accuracy 100%, p50 4.8 s. Naive mode pending its embeddings | `/eval`, `data/eval/latest.json` |
 | Supabase store | **Written, untested** (no project/keys). The app runs on a local JSON index without it | Optional step 4 |
 | UI (`/`, `/eval`, `/how-it-works`) | **Done.** Built with the impeccable skill and two finish-review rounds. Round 1: seven fixes. Round 2: six resolved, one partial plus two small regressions, all fixed afterwards but **not re-reviewed** (an unattended run stops at two rounds). Design detector clean | `npm run dev` (step 5) |
 | Docs | README, PRODUCT.md, DESIGN.md, CLAUDE.md, notebook | — |

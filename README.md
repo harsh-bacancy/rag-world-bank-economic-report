@@ -38,7 +38,7 @@ Question ─▶ route (region by name / acronym / country · chapter only if nam
 
 ```bash
 npm install
-npm run ingest            # PDF → data/index/index.json (0 model calls without a key; ~8 embedding calls with one)
+npm run ingest            # PDF → data/index/index.json; with a key also embeddings (free tier: 90 texts/min, 1,000/day — resumable)
 npm run eval:retrieval    # the retrieval ladder → data/eval/retrieval-latest.json (0 Gemini calls)
 PORT=3200 npm run dev     # http://localhost:3200
 ```
@@ -70,7 +70,27 @@ Inspect without any model: `npm run inspect -- --outline`, `--page 96`, `--table
 
 By kind (final rung): lookup hit@5 100% · reasoning 100% · arithmetic 100% · cross-section 75% (questions that need two places in the top 5). Refusal gate (no model call): threshold 0.15 on the best reranked passage plus rule-based refusals → 97% correct on all 60 questions, 0 false refusals; the 2 refusals it lets through (an IMF forecast, a June 2025 edition) are on-topic and left to the model and verifier.
 
-Field guide on the same report (13 questions, bge-small embeddings): MRR 0.26 → 0.76 → 0.88. Dense and hybrid rungs and the answer-level table (correctness, faithfulness, mix-up rate, citation precision, refusal accuracy, latency) appear on `/eval` once a key is set and `npm run eval` has run.
+Field guide on the same report (13 questions, bge-small embeddings): MRR 0.26 → 0.76 → 0.88.
+
+## Results (answers, full mode, Gemini 3.5 Flash-Lite, hybrid search)
+
+All 60 golden questions, 2026-10-26. Correctness and faithfulness are judged by Gemini against the human-written expected answers; mix-ups, citation precision and numbers present are checked without the judge.
+
+| Metric | Full pipeline |
+|---|---|
+| Right place in top 5 (hit@5) / MRR | 98% / 0.87 |
+| Answer correctness (0 / 0.5 / 1) | **0.97** (lookup 0.98 · reasoning 0.97 · cross-section 0.88 · arithmetic 1.00 · refusal 1.00) |
+| Expected numbers present in the answer | 86% |
+| Faithfulness to the passages | 0.98 |
+| **Answers mixing regions or chapters** | **0%** (the pass/fail bar) |
+| Citation precision (cited passages in the expected place) | 83% |
+| Refusal accuracy / false refusals | 100% / 0% |
+| Citations stripped by the verifier | 0 not verbatim · 0 out of scope |
+| Median latency · Gemini calls | 4.8 s · 141 for 60 questions (incl. judge) |
+
+The naive-baseline answer run is pending: the free tier allows 1,000 embedding texts a day, and the naive index's embeddings finish on the second day (`npm run ingest`, then `npm run eval -- --mode naive --resume`). A first full run (before two fixes) scored 0.93; the fixes were a verifier fallback to the longest verbatim clause of an over-long quote, one repair retry when nothing verifies, and asking for headline figures on "what does X say" questions.
+
+ Dense and hybrid rungs join the ladder once the naive and ablation embeddings exist (`npm run eval:retrieval`).
 
 ## Surfaces
 

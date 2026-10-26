@@ -23,20 +23,34 @@ export interface GeneratedAnswer { answer: string; citations: VerifiedCitation[]
 /** What the routed question is about. A citation from outside it is stripped like a non-verbatim quote. */
 export interface Scope { regions: Region[]; chapters: ChapterKey[] }
 
-const SYSTEM = (opts: { nudge?: boolean }) => [
+const SYSTEM = (opts: { nudge?: boolean; repair?: boolean }) => [
   "You answer questions about ONE document, the World Bank's Global Economic Prospects (June 2026), using ONLY the numbered sources. No outside knowledge.",
   `If the sources do not contain the answer, set refused=true and make the answer exactly: "${REFUSAL_TEXT}". That includes questions about other editions, other institutions' forecasts, years the report does not forecast, or advice.`,
   "Each source is labelled with where it lives (chapter › section, region, page). Use a source only for the region, chapter, country or box it belongs to: never attach a figure from one region's section to another region. If the question names the executive summary, a chapter or a box, answer from that part.",
   "Quote numbers, years and names exactly as written. Distinguish forecasts (f), estimates (e) and revisions (differences from January 2026 projections, in percentage points); do not read a revision as a growth rate. Fiscal-year figures keep their fiscal year (e.g. FY2026/27).",
   "Never compute. Differences, averages, sums and implied earlier projections may only come from a source labelled COMPUTED, which you may cite.",
-  "Write a direct answer in 1–5 sentences. Put a marker like [^1] after each claim; each marker maps to one citation whose quote is copied VERBATIM from that source (for tables, copy the row text, e.g. 'South Asia | 6.6 | 6.8 | 7.0 | 6.3').",
+  "Write a direct answer in 1–5 sentences. When the question asks what a part of the report says, cover its main findings WITH their headline figures (percentages, basis points, years). Put a marker like [^1] after each claim; each marker maps to one citation whose quote is copied VERBATIM from that source, one sentence or clause of 5–30 words, never a whole paragraph (for tables, copy the row text, e.g. 'South Asia | 6.6 | 6.8 | 7.0 | 6.3').",
+  opts.repair ? "IMPORTANT: your previous answer's quotes could not be found verbatim in the sources. Copy each quote character for character from ONE sentence of its source; keep quotes short." : "",
   opts.nudge ? "IMPORTANT: the retrieval system rated these sources highly relevant to this exact question. Re-read every source; refuse only if the answer truly is not there." : "",
 ].filter(Boolean).join("\n");
 
-export async function generateAnswer(question: string, sources: Source[], scope: Scope | null, opts: { nudge?: boolean; history?: { role: "user" | "assistant"; content: string }[] } = {}): Promise<GeneratedAnswer> {
+export async function generateAnswer(question: string, sources: Source[], scope: Scope | null, opts: { nudge?: boolean; repair?: boolean; history?: { role: "user" | "assistant"; content: string }[] } = {}): Promise<GeneratedAnswer> {
   const convo = (opts.history ?? []).slice(-6).map((m) => `${m.role === "user" ? "Reader" : "Assistant"}: ${m.content}`).join("\n");
   const out = await geminiObject("answer", Answer, [{ type: "text", text: `${convo ? `Conversation so far:\n${convo}\n\n` : ""}Sources:\n\n${renderSources(sources)}\n\nQuestion: ${question}` }], SYSTEM(opts));
   return verifyAnswer(out, sources, scope);
+}
+
+/**
+ * A long quote with one wrong character should not sink a true citation: try its clauses (split at . ; : ,)
+ * longest first, and accept one of at least 6 words that occurs verbatim. Only that verbatim span is shown.
+ */
+export function longestVerbatimClause(text: string, quote: string): [number, number] | null {
+  const clauses = quote.split(/(?<=[.;:,])\s+/).map((c) => c.replace(/[.;:,]$/, "").trim()).filter((c) => c.split(/\s+/).length >= 6);
+  for (const c of clauses.sort((a, b) => b.length - a.length)) {
+    const hit = locateSpan(text, c);
+    if (hit) return hit;
+  }
+  return null;
 }
 
 /**
@@ -51,7 +65,7 @@ export function verifyAnswer(out: RawAnswer, sources: Pick<Source, "n" | "id" | 
     const src = sources[c.source - 1];
     if (!src) return { n: c.n, source: c.source, sourceId: "", label: "", printed: "", region: null, chapter: null, span: c.quote, verified: false, reason: "no_source" as const };
     const base = { n: c.n, source: c.source, sourceId: src.id, label: src.label, printed: src.printed, region: src.region, chapter: src.chapter };
-    const hit = locateSpan(src.text, c.quote);
+    const hit = locateSpan(src.text, c.quote) ?? longestVerbatimClause(src.text, c.quote);
     if (!hit) return { ...base, span: c.quote, verified: false, reason: "not_verbatim" as const };
     const span = src.text.slice(hit[0], hit[1]);
     if (scope && src.kind !== "computed") {

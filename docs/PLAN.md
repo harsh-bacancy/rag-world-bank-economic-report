@@ -99,3 +99,9 @@ _(updated per phase below)_
 - **P5 eval:** retrieval ladder (keyword channel) naive MRR 0.44 → 0.52 sections → 0.63 heading path → 0.75 routing → 0.86 rerank → 0.87 parents; hit@5 58% → 96%; rerank without routing 0.80 (routing still earns its place). Gate 0.15 → 97% on all 60, 0 false refusals. Answer eval (`npm run eval`) pending a key.
 - **P6 UI:** impeccable new-work flow, roll 2d2ae0e1 → court-reporter opinion page world (buckram spine, oxblood path ink, headnote/holding/authorities, star-paging, record panel), code-led. Detector clean.
 - **P7 package:** README, PRODUCT.md (inferences labelled), CLAUDE.md, notebook, START_HERE.md.
+
+### 2026-10-26 — key added, full mode measured
+- Free-tier embedding limits found the hard way: 100 texts/min, 30,000 tokens/min and **1,000 texts/day** (every text in a batch counts). Embedding now batches by texts and tokens, paces a one-minute window, honours the API's retry hint, saves after every batch (resumable), and the limiter no longer mistakes a per-minute 429 for the daily cap. Query embedding falls back to keywords if the daily cap is hit.
+- Search chunks fully embedded → hybrid search live. Naive chunks 74/889, ablation 0/783: next days.
+- Full-mode answer eval, 60 questions: run 1 correctness 0.93 (S3 refused because its single over-long quote failed verification). Fixes: verifier accepts the longest verbatim clause (≥ 6 words) of a failed quote and shows only that; one repair retry when nothing verifies; prompt asks for headline figures and short quotes. Run 2: **correctness 0.97, faithfulness 0.98, mix-ups 0%, refusal accuracy 100%, false refusals 0%, citation precision 83%, numbers present 86%, p50 4.8 s, 141 calls**. Remaining half-credits: S2 (chooses different headline findings than the expected answer), L06, X04, X05.
+- Pending: naive answer run and dense ladder rungs after embeddings complete.

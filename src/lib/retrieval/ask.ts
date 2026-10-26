@@ -76,6 +76,11 @@ export async function ask(question: string, opts: { mode?: AskMode; config?: Par
   // the scope guard: a citation from outside the routed regions/chapters is stripped (open comparisons have no fixed scope)
   const scope = mode === "full" && !r.route.openComparison && (r.route.regions.length || r.route.chapters.length) ? { regions: r.route.regions, chapters: r.route.chapters } : null;
   let gen = await generateAnswer(question, all, scope, { history: opts.history });
+  if (mode === "full" && gen.refused && gen.rejected.notVerbatim > 0 && gen.citations.length === 0) {
+    // the draft was an answer, but none of its quotes survived verification: one repair attempt with shorter quotes
+    const repaired = await generateAnswer(question, all, scope, { repair: true, history: opts.history });
+    if (!repaired.refused) gen = { ...repaired, rejected: { notVerbatim: repaired.rejected.notVerbatim + gen.rejected.notVerbatim, outOfScope: repaired.rejected.outOfScope + gen.rejected.outOfScope } };
+  }
   if (mode === "full" && gen.refused && gen.rejected.notVerbatim + gen.rejected.outOfScope === 0 && (r.topScore ?? 0) >= 0.4) {
     // a strong retrieval match but a refusal: give the model one nudge before accepting it
     const retry = await generateAnswer(question, all, scope, { nudge: true, history: opts.history });
