@@ -65,9 +65,17 @@ export async function retrieve(question: string, cfg: RetrievalConfig, opts: { s
   const store = opts.store ?? getStore();
   const route = opts.route ?? (await resolveRoute(question, cfg.route, store));
   const dense = cfg.channel === "keyword" ? false : await store.denseAvailable(cfg.corpus);
-  const channel: Channel = cfg.channel === "auto" ? (dense ? "hybrid" : "keyword") : cfg.channel;
+  let channel: Channel = cfg.channel === "auto" ? (dense ? "hybrid" : "keyword") : cfg.channel;
   const text = cfg.route === "none" ? question : route.searchQuery;
-  const vector = channel === "keyword" ? null : await embedQuery(text);
+  let vector: number[] | null = null;
+  if (channel !== "keyword") {
+    try { vector = await embedQuery(text); } catch (err) {
+      // the embedding quota is per day on the free tier: fall back to keywords rather than failing the question
+      if (cfg.channel === "dense") throw err;
+      console.warn(`[retrieve] query embedding failed, keyword channel only: ${err instanceof Error ? err.message.slice(0, 120) : err}`);
+    }
+    if (!vector) channel = "keyword";
+  }
 
   // one or more scopes: each named region or chapter is searched on its own so a comparison sees every side
   const base: SearchFilter = { chapter: route.chapter ?? undefined, boxId: route.boxId ?? undefined, regions: route.regions.length === 1 ? route.regions : undefined };
